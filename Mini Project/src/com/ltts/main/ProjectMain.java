@@ -20,7 +20,12 @@ public class ProjectMain {
 		int n= Integer.parseInt(br.readLine());
 		if(n==1)
 		{
-			System.out.println("Enter the Team Id: "); 
+			System.out.println("1. To insert Team Detalis ");
+			System.out.println("2. To insert Player Detalis ");
+			int a=Integer.parseInt(br.readLine());
+			if(a==1)
+			{
+			System.out.println("Enter the Team ID: "); 
 			int tid=Integer.parseInt(br.readLine());
 			System.out.println("Enter the Team Name: ");
 		    String tname=br.readLine();
@@ -31,10 +36,10 @@ public class ProjectMain {
 		    Team t= new Team(tid,tname,towner,tcoach);
 		    TeamDao td=new TeamDao();
 		    td.insertTeam(t);
-			
-
-
-			System.out.println("Enter the Player Id: "); 
+			}
+			else if (a==2)
+			{
+			System.out.println("Enter the Player ID: "); 
 			int pid=Integer.parseInt(br.readLine());
 			System.out.println("Enter the Player Name: ");
 		    String pname=br.readLine();
@@ -56,6 +61,7 @@ public class ProjectMain {
 		    Player p=new Player(pid,pname,pdate,pnation,pskills,pruns,pwic,pnum,pteam);
 		    PlayerDao pd=new PlayerDao();
 		    pd.insertPlayer(p);
+		}
 		}
 		else if(n==2)
 		{
@@ -116,7 +122,10 @@ public class ProjectMain {
 			}
 
 		}
-
+		else
+		{
+			System.out.println("Invaild Input");
+		}
 
 	}
 }
